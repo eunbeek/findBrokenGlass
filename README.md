@@ -3,19 +3,21 @@
 ## About
 This repo is a open source tool to check a connection status of URLs found from the input file, using Java. It returns "[code] url status" in each line.
 
-<p align="center">
-  <img src="./asset/defaultTool.png" alt="He's Dead, Jim" width="738">
-</p>
 
 ## Getting Started
 Please see the appropriate guide for your environment of choice:
-
-### Installation / 
+ 
   1. Clone the repo
   
   ```bash
   git clone https://github.com/eunbeek/findBrokenGlass.git
   ```
+  
+  2. Run the UrlCheck.exe file in bin folder on CMD
+  <p align="Left">
+  <img src="./asset/defaultTool.png" alt="DefaultPic" width="738">
+  </p>
+  
 ## Usage
   
   This command returns a help message for the flag and the argument explanation.

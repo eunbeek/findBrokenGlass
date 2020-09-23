@@ -10,6 +10,16 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.sun.jna.Library;
+import com.sun.jna.Native;
+
+interface Kernel32 extends Library {
+	
+	boolean SetConsoleTextAttribute(int h_ConsoleOutput, int u16_Attributes);
+
+	int GetStdHandle(int u32_Device);
+
+}
 
 public class UrlCheck {
 		// url set regex
@@ -17,11 +27,20 @@ public class UrlCheck {
 
 		// delimiter to get url from input file 
 		final static String delimiter = "[\\[\\]\"<>'\n\b\r]";
+		
 
+		static final int GRAY = 0x7;
+		static final int GREEN = 0xA;
+		static final int RED = 0xC;
+		static final int WHITE = 0xF;
+		static final int BLUE = 0x9;
+		static final int STD_OUTPUT_HANDLE = -11;
 
+	    
 		// request url and check the response
 		public static void availableURL(String host)
 		{
+			Kernel32 lib = Native.load("kernel32", Kernel32.class);
 
 				try {
 						// request url
@@ -35,20 +54,27 @@ public class UrlCheck {
 						HttpURLConnection.setFollowRedirects(true);
 						exitCode.setConnectTimeout(1000);
 						
-						System.out.print("["+exitCode.getResponseCode()+"] "+ host +" - ");
+						//System.out.print("["+exitCode.getResponseCode()+"] "+ host +" - ");
 						
 						// response code result
-						if(exitCode.getResponseCode() == 200)
+						if(exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300)
 						{ 
-							System.out.println("Good");
+							
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), GREEN);
+							System.out.println("["+exitCode.getResponseCode()+"] "+ host +" - Good");							
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 						}
-						else if(exitCode.getResponseCode() == 400 || exitCode.getResponseCode() == 404)
+						else if(exitCode.getResponseCode() >= 400 && exitCode.getResponseCode() < 500)
 						{
-							System.out.println("Bad");
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), RED);
+							System.out.println("["+exitCode.getResponseCode()+"] "+ host +" - Bad");					
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 						}
 						else if(exitCode.getResponseCode() == 301 || exitCode.getResponseCode() == 307 || exitCode.getResponseCode() == 308 )
 						{
-							System.out.println("Redirect");
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
+							System.out.println("["+exitCode.getResponseCode()+"] "+ host +" - Redirect");
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 							
 							// redirect to new location by Recursion itself when it is 301,307,308
 							String newUrl = exitCode.getHeaderField("Location");
@@ -57,13 +83,16 @@ public class UrlCheck {
 						}
 						else
 						{
-							System.out.println("Unknown");				
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), GRAY);
+							System.out.println("["+exitCode.getResponseCode()+"] "+ host +" - Unknown");	
+							lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 						}
 
 				}catch (Exception e) {
 					// response fail, server is not existed
+					lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), RED);
 					System.out.println("[599] "+ host +" - Fail" );
-
+					lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 				}
 
 		}

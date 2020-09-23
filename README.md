@@ -2,7 +2,7 @@
 
 ## About
 This repo is a open source tool to check a connection status of URLs found from the input file, using Java. It returns "[code] url status" in each line.
-
+https://github.com/eunbeek/findBrokenGlass/asset/defaultTool.png
 ## Getting Started
 Please see the appropriate guide for your environment of choice:
 

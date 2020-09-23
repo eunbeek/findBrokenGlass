@@ -60,7 +60,7 @@ Please see the appropriate guide for your CLI of choice:
  
     <p align="Left">
      <img src="./asset/psTool.png" alt="PowerShell" width="738">
-   </p>
+     </p>
    
   ```bash
   ./UrlCheck help

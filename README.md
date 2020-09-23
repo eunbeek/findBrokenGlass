@@ -18,10 +18,13 @@ Please see the appropriate guide for your environment of choice:
   ```
 ## Usage
   
+  This command returns help messange for the flag and the argument explanation.
   ```bash
   UrlCheck help
   ```
-
+  
+  You can type the input file name after tool name, then return the response code, URL and status in each line.
+  This tool accepts multiple files and delimiters by space
   ```bash
   UrlCheck <fileName>
   ```
@@ -30,10 +33,12 @@ Please see the appropriate guide for your environment of choice:
   UrlCheck <fileName1> <fileName2>
   ```
   
+  You can type '-a' flag to allow checking for archived versions of URLs.
   ```bash
   UrlCheck -a <fileName>
   ```
    
+  This '-s' flag change 'http' to 'https' in URls.  
   ```bash
   UrlCheck -s <fileName>
   ```

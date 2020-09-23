@@ -57,13 +57,13 @@ Please see the appropriate guide for your CLI of choice:
   ```
 
  ### PowerShell
- 
-    <p align="Left">
-     <img src="./asset/psTool.png" alt="PowerShell" width="738">
-     </p>
-   
+  <p align="">
+ <img src="./asset/psTool.png" alt="DefaultPic" width="738"/>
+ </p>
+
+  This command returns a help message for the flag and the argument explanation.
   ```bash
-  ./UrlCheck help
+  ./UrlCheck 
   ```
   
 ## Library 

@@ -5,7 +5,6 @@ This repo is a open source tool to check a connection status of URLs found from 
 
 
 ## Getting Started
-Please see the appropriate guide for your environment of choice:
  
   1. Clone the repo
   
@@ -17,6 +16,7 @@ Please see the appropriate guide for your environment of choice:
   <p align="Left">
   <img src="./asset/defaultTool.png" alt="DefaultPic" width="738">
   </p>
+  
   
 ## Usage
   

@@ -38,7 +38,7 @@ Please see the appropriate guide for your environment of choice:
   UrlCheck -a <fileName>
   ```
    
-  This '-s' flag change 'http' to 'https' in URls.  
+  This '-s' flag change 'http' to 'https' in URLs.  
   ```bash
   UrlCheck -s <fileName>
   ```

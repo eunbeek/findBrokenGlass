@@ -9,30 +9,30 @@ Please see the appropriate guide for your environment of choice:
 ### Installation / 
   1. Clone the repo
   
-  '''bash
+  ```bash
   git clone https://github.com/eunbeek/findBrokenGlass.git
-  '''
+  ```
 ## Usage
   
-  '''bash
+  ```bash
   UrlCheck help
-  '''
+  ```
 
-  '''bash
+  ```bash
   UrlCheck <fileName>
-  '''
+  ```
 
-  '''bash
+  ```bash
   UrlCheck <fileName1> <fileName2>
-  '''
+  ```
   
-  '''bash
+  ```bash
   UrlCheck -a <fileName>
-  '''
+  ```
    
-  '''bash
+  ```bash
   UrlCheck -s <fileName>
-  '''
+  ```
 
 
   

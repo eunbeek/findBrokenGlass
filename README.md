@@ -26,7 +26,7 @@ This repo is a open source tool to check a connection status of URLs found from 
 ## Usage
 Please see the appropriate guide for your CLI of choice:
 
- - CMD
+ ### CMD
    <p align="Left">
      <img src="./asset/defaultTool.png" alt="DefaultPic" width="738">
    </p>
@@ -56,7 +56,7 @@ Please see the appropriate guide for your CLI of choice:
   UrlCheck -s <fileName>
   ```
 
- - PowerShell
+ ### PowerShell
  
     <p align="Left">
      <img src="./asset/psTool.png" alt="PowerShell" width="738">

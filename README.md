@@ -3,6 +3,14 @@
 ## About
 This repo is a open source tool to check a connection status of URLs found from the input file, using Java. It returns "[code] url status" in each line.
 
+### Features
+ - looking for the URLs in the input file
+ - Accepting over two input files
+ - Returning 200 code with Good status, 400 and 404 codes with Bad status
+ - Colouring the output by the status : Good - Green, Bad - Red, Redirect - Blue, Fail - Red, UnKnown - Gray
+ - Redirecting to followed location when it is 301, 307 and 308
+ - Checking a version of archived URLs using the WayBackMachine
+ - Checking whether Urls work with https or not
 
 ## Getting Started
  
@@ -40,7 +48,7 @@ This repo is a open source tool to check a connection status of URLs found from 
   UrlCheck -a <fileName>
   ```
    
-  This '-s' flag change 'http' to 'https' in URLs.  
+  This '-s' flag change 'http' to 'https' in URLs and you can check whether url work with https or not. 
   ```bash
   UrlCheck -s <fileName>
   ```

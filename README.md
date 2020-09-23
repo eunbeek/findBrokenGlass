@@ -20,14 +20,16 @@ This repo is a open source tool to check a connection status of URLs found from 
   git clone https://github.com/eunbeek/findBrokenGlass.git
   ```
   
-  2. Run the UrlCheck.exe file in bin folder on CMD
-  <p align="Left">
-  <img src="./asset/defaultTool.png" alt="DefaultPic" width="738">
-  </p>
-  
-  
+  2. Run the UrlCheck.exe file in bin folder on CMD/PowerShell/Terminal
+
+ 
 ## Usage
-  
+
+ - CMD
+   <p align="Left">
+     <img src="./asset/defaultTool.png" alt="DefaultPic" width="738">
+   </p>
+   
   This command returns a help message for the flag and the argument explanation.
   ```bash
   UrlCheck help
@@ -53,6 +55,16 @@ This repo is a open source tool to check a connection status of URLs found from 
   UrlCheck -s <fileName>
   ```
 
+ - PowerShell
+ 
+    <p align="Left">
+     <img src="./asset/psTool.png" alt="PowerShell" width="738">
+   </p>
+   
+   ```bash
+  ./UrlCheck help
+  ```
+  
 ## Library 
 https://github.com/java-native-access/jna
   

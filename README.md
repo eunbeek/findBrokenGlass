@@ -18,13 +18,13 @@ Please see the appropriate guide for your environment of choice:
   ```
 ## Usage
   
-  This command returns help messange for the flag and the argument explanation.
+  This command returns a help message for the flag and the argument explanation.
   ```bash
   UrlCheck help
   ```
   
   You can type the input file name after tool name, then return the response code, URL and status in each line.
-  This tool accepts multiple files and delimiters by space
+  This tool accepts multiple files and delimiters by space.
   ```bash
   UrlCheck <fileName>
   ```

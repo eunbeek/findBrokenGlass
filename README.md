@@ -24,6 +24,7 @@ This repo is a open source tool to check a connection status of URLs found from 
 
  
 ## Usage
+Please see the appropriate guide for your CLI of choice:
 
  - CMD
    <p align="Left">
@@ -61,7 +62,7 @@ This repo is a open source tool to check a connection status of URLs found from 
      <img src="./asset/psTool.png" alt="PowerShell" width="738">
    </p>
    
-   ```bash
+  ```bash
   ./UrlCheck help
   ```
   

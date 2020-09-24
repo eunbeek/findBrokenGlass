@@ -21,6 +21,10 @@ This repo is a open source tool to check a connection status of URLs found from 
   ```
   
   2. Run the UrlCheck.exe file in bin folder on CMD/PowerShell/Terminal
+  
+  ```bash
+  {cloneDirectory}/bin/[mac|window]
+  ```
 
  
 ## Usage

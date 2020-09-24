@@ -28,7 +28,14 @@ public class UrlCheck {
 		// delimiter to get url from input file 
 		final static String delimiter = "[\\[\\]\"<>'\n\b\r]";
 		
+		//text for mac
+//	    public static final String RED = "\033[0;31m";
+//	    public static final String GREEN = "\033[0;32m";
+//	    public static final String WHITE = "\033[0;37m";
+//	    public static final String BLUE ="\033[0;34m";
+//	    public static final String RESET = "\033[0m";
 
+		// text for window
 		static final int GRAY = 0x7;
 		static final int GREEN = 0xA;
 		static final int RED = 0xC;
@@ -54,7 +61,6 @@ public class UrlCheck {
 						HttpURLConnection.setFollowRedirects(true);
 						exitCode.setConnectTimeout(1000);
 						
-						//System.out.print("["+exitCode.getResponseCode()+"] "+ host +" - ");
 						
 						// response code result
 						if(exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300)
@@ -94,6 +100,37 @@ public class UrlCheck {
 					System.out.println("[599] "+ host +" - Fail" );
 					lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 				}
+						// for Mac
+//						if(exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300)
+//						{ 
+//
+//							System.out.println(GREEN+"["+exitCode.getResponseCode()+"] "+ host +" - Good"+RESET);							
+//						
+//						}
+//						else if(exitCode.getResponseCode() >= 400 && exitCode.getResponseCode() < 500)
+//						{
+//							System.out.println(RED+"["+exitCode.getResponseCode()+"] "+ host +" - Bad"+RESET);					
+//						}
+//						else if(exitCode.getResponseCode() == 301 || exitCode.getResponseCode() == 307 || exitCode.getResponseCode() == 308 )
+//						{
+//							System.out.println(BLUE + "["+exitCode.getResponseCode()+"] "+ host +" - Redirect"+ RESET);
+//							
+//							// redirect to new location by Recursion itself when it is 301,307,308
+//							String newUrl = exitCode.getHeaderField("Location");
+//							availableURL(newUrl);	
+//							
+//						}
+//						else
+//						{
+//							System.out.println(RED+"["+exitCode.getResponseCode()+"] "+ host +" - Unknown"+RESET);	
+//						}
+//
+//				}catch (Exception e) {
+//					// response fail, server is not existed
+//					System.out.println(RED+"[599] "+ host +" - Fail" +RESET);
+//
+//				}		
+						
 
 		}
 		

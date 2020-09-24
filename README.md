@@ -76,7 +76,7 @@ Please see the appropriate guide for your CLI of choice:
  </p>
  
  ```bash
- java -jar UrlCheck.jar ../urls.html
+ java -jar UrlCheck.jar <fileName>
  ```
  
 ## Library 

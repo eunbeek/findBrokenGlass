@@ -65,7 +65,16 @@ Please see the appropriate guide for your CLI of choice:
   ```bash
   ./UrlCheck 
   ```
-  
+ 
+ ### Mac Terminal
+  <p align="">
+ <img src="./asset/macTool.png" alt="DefaultPic" width="738"/>
+ </p>
+ 
+ ```bash
+ java -jar UrlCheck.jar ../urls.html
+ ```
+ 
 ## Library 
 https://github.com/java-native-access/jna
   

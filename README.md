@@ -50,14 +50,19 @@ Please see the appropriate guide for your CLI of choice:
   UrlCheck <fileName1> <fileName2>
   ```
   
-  You can type '-a' flag to allow checking for archived versions of URLs.
+  You can type '--a' flag to allow checking for archived versions of URLs.
   ```bash
-  UrlCheck -a <fileName>
+  UrlCheck --a <fileName>
   ```
    
-  This '-s' flag change 'http' to 'https' in URLs and you can check whether url work with https or not. 
+  This '--s' flag change 'http' to 'https' in URLs and you can check whether url work with https or not. 
   ```bash
-  UrlCheck -s <fileName>
+  UrlCheck --s <fileName>
+  ```
+  
+  This '--v' or '--version' flag return the current version. 
+  ```bash
+  UrlCheck --v 
   ```
 
  ### PowerShell
@@ -75,10 +80,14 @@ Please see the appropriate guide for your CLI of choice:
  <img src="./asset/macTool.png" alt="DefaultPic" width="738"/>
  </p>
  
- ```bash
- java -jar UrlCheck.jar <fileName>
- ```
+  ```bash
+  java -jar UrlCheck.jar <fileName>
+  ```
  
+  ```bash
+  java -jar UrlCheck.jar /v
+  ```
+
 ## Library 
 https://github.com/java-native-access/jna
   

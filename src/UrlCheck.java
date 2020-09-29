@@ -100,7 +100,7 @@ public class UrlCheck {
 					System.out.println("[599] "+ host +" - Fail" );
 					lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 				}
-						// for Mac
+//						// for Mac
 //						if(exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300)
 //						{ 
 //
@@ -147,13 +147,41 @@ public class UrlCheck {
 			System.out.println("|                                                      |");
 			System.out.println("| 2) UrlCheck help                                     |");
 			System.out.println("|                                                      |");
-			System.out.println("| 3) UrlCheck -a <fileName>                            |");
-			System.out.println("| : To check for archived versions of URLs             |");
-			System.out.println("| ex) UrlCheck -a index2.html                          |");
+			System.out.println("| 3) Option a, s, v                                    |");
 			System.out.println("|                                                      |");
-			System.out.println("| 4) UrlCheck -s <fileName>                            |");
-			System.out.println("| : To request URLs with https                         |");
-			System.out.println("| ex) UrlCheck -s index2.html                          |");
+			System.out.println("|  For Window :                                        |");
+			System.out.println("|                                                      |");
+			System.out.println("|  Option a : To check for archived versions of URLs   |");
+			System.out.println("|                                                      |");
+			System.out.println("|  UrlCheck --a <fileName>                             |");
+			System.out.println("|  ex) UrlCheck --a index2.html                        |");
+			System.out.println("|                                                      |");
+			System.out.println("|  Option s : To request URLs with https               |");
+			System.out.println("|                                                      |");
+			System.out.println("|  UrlCheck --s <fileName>                             |");
+			System.out.println("|  ex) UrlCheck --s index2.html                        |");
+			System.out.println("|                                                      |");
+			System.out.println("|  Option v : To check the version                     |");
+			System.out.println("|                                                      |");
+			System.out.println("|  UrlCheck --v                                        |");
+			System.out.println("|  UrlCheck --version                                  |");
+			System.out.println("|                                                      |");
+			System.out.println("|                                                      |");
+			System.out.println("|  For Mac :                                           |");
+			System.out.println("|                                                      |");
+			System.out.println("|  Option a : To check for archived versions of URLs   |");
+			System.out.println("|                                                      |");
+			System.out.println("|  UrlCheck /a <fileName>                              |");
+			System.out.println("|  ex) UrlCheck /a index2.html                         |");
+			System.out.println("|                                                      |");
+			System.out.println("|  Option s : To request URLs with https               |");
+			System.out.println("|                                                      |");
+			System.out.println("|  UrlCheck /s <fileName>                              |");
+			System.out.println("|  ex) UrlCheck /s index2.html                         |");
+			System.out.println("|                                                      |");
+			System.out.println("|  Option v : To check the version                     |");
+			System.out.println("|                                                      |");
+			System.out.println("|  UrlCheck /v                                         |");
 			System.out.println("|                                                      |");
 			System.out.println("| Thanks!                                              |");
 			
@@ -259,20 +287,30 @@ public class UrlCheck {
 			startMessage();
 			
 			// command line flag a, s
-			if(args[0].startsWith("-"))
+			if(args[0].startsWith("--") || args[0].startsWith("/"))
 			{
-				// archive flag handle
-				if(args[0].contains("a")) archived = true;
-		
-				// secure request flag handle
-				if(args[0].contains("s")) secured = true;
-				
-				for(int i = 1; i < args.length; i++)
+				if(args[0].contains("v") || args[0].contains("version")) 
 				{
-					System.out.println("File :  " + args[i]);
-					fileUrlListUp(args[i],archived,secured);					
-				}	
+					System.out.println("UrlChecker v1.0.1");
+				}
+				else
+				{
+					// archive flag handle
+					if(args[0].contains("a")) archived = true;
+			
+					// secure request flag handle
+					if(args[0].contains("s")) secured = true;
+					
+					if(archived || secured)
+					{
+						for(int i = 1; i < args.length; i++)
+						{
+							System.out.println("File :  " + args[i]);
+							fileUrlListUp(args[i],archived,secured);					
+						}		
+					}
 				
+				}	
 			}
 			else {
 				for(int i = 0; i < args.length; i++)

@@ -81,7 +81,7 @@ Please see the appropriate guide for your CLI of choice:
  </p>
  
   ```bash
-  java -jar UrlCheck.jar <fileName>
+  java -jar UrlCheck.jar /m <fileName>
   ```
  
   ```bash

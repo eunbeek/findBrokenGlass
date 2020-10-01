@@ -11,6 +11,7 @@ This repo is a open source tool to check a connection status of URLs found from 
  - Redirecting to followed location when it is 301, 307 and 308
  - Checking a version of archived URLs using the WayBackMachine
  - Checking whether Urls work with https or not
+ - Allow to pass directory paths and recursively process all children under that directory
 
 ## Getting Started
  

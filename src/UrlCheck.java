@@ -9,7 +9,6 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +18,8 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.FileVisitResult;
 import java.nio.file.attribute.BasicFileAttributes;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class UrlCheck {
 	// url set regex
@@ -27,6 +28,7 @@ public class UrlCheck {
 	// delimiter to get url from input file 
 	final static String delimiter = "[\\[\\]\"<>'\n\b\r]";
 
+	static JSONArray list = new JSONArray();
 
 	public static void helpMessage()
 	{
@@ -41,7 +43,7 @@ public class UrlCheck {
 		System.out.println("|                                                      |");
 		System.out.println("| 2) UrlCheck help                                     |");
 		System.out.println("|                                                      |");
-		System.out.println("| 3) Option a, s, v, m, d                              |");
+		System.out.println("| 3) Option a, s, v, m, d, j/json                      |");
 		System.out.println("|                                                      |");
 		System.out.println("|  For Window :                                        |");
 		System.out.println("|                                                      |");
@@ -54,6 +56,11 @@ public class UrlCheck {
 		System.out.println("|                                                      |");
 		System.out.println("|  UrlCheck --s <fileName>                             |");
 		System.out.println("|  ex) UrlCheck --s index2.html                        |");
+		System.out.println("|                                                      |");
+		System.out.println("|  Option j/json : To return JSON format               |");
+		System.out.println("|                                                      |");
+		System.out.println("|  UrlCheck --j <fileName>                             |");
+		System.out.println("|  ex) UrlCheck --json index2.html                     |");
 		System.out.println("|                                                      |");
 		System.out.println("|  Option v : To check the version                     |");
 		System.out.println("|                                                      |");
@@ -77,6 +84,11 @@ public class UrlCheck {
 		System.out.println("|                                                      |");
 		System.out.println("|  UrlCheck /s <fileName>                              |");
 		System.out.println("|  ex) UrlCheck /s index2.html                         |");
+		System.out.println("|                                                      |");
+		System.out.println("|  Option j/json : To return JSON format               |");
+		System.out.println("|                                                      |");
+		System.out.println("|  UrlCheck /j <fileName>                              |");
+		System.out.println("|  ex) UrlCheck /json index2.html                      |");
 		System.out.println("|                                                      |");
 		System.out.println("|  Option v : To check the version                     |");
 		System.out.println("|                                                      |");
@@ -102,7 +114,7 @@ public class UrlCheck {
 
 
 	// list up url in input file
-	public static void fileUrlListUp(String fName, boolean archived, boolean secured, boolean runMac) 
+	public static void fileUrlListUp(String fName, boolean archived, boolean secured, boolean runMac, boolean jsonOut) 
 	{
 		String regSecure = "^(http)://";
 		Pattern pat = Pattern.compile(regex, Pattern.MULTILINE);
@@ -134,23 +146,32 @@ public class UrlCheck {
 						Matcher matcher = pat.matcher(str);
 						if(matcher.find())
 						{
-							// change http to https
-							if(secured) str = str.replaceFirst(regSecure, "https://");	
-
-							if(runMac)
+							if(jsonOut)
 							{
-								UrlCheckForMac.availableURL(str);
+								JSONObject temp = new JSONObject();
+								temp = ConvertJavaToJson.availableURL(str);
+								list.add(temp);
 							}
 							else
-							{
-								UrlCheckForWindow.availableURL(str);
+							{					
+								// change http to https
+								if(secured) str = str.replaceFirst(regSecure, "https://");	
+	
+								if(runMac)
+								{
+									UrlCheckForMac.availableURL(str);
+								}
+								else
+								{
+									UrlCheckForWindow.availableURL(str);
+								}
 							}
-
 							// request archived
 							if(archived) archiveUrl(str);
 						}
 					}
 				}
+				if(jsonOut) System.out.println(list);
 				br.close();
 			}
 		} catch (FileNotFoundException e) {
@@ -199,6 +220,7 @@ public class UrlCheck {
 		boolean archived = false;
 		boolean secured = false;
 		boolean runMac = false;
+		boolean jsonOut = false;
 
 		if(args.length == 0 || args[0].toLowerCase().equals("help"))
 		{
@@ -209,7 +231,7 @@ public class UrlCheck {
 			startMessage();
 
 			// command line flag a, s, d
-			if(args[0].startsWith("--") || args[0].startsWith("/"))
+			if(args[0].startsWith("-") || args[0].startsWith("/") || args[0].startsWith("\\"))
 			{
 				if(args[0].contains("v") || args[0].contains("version")) 
 				{
@@ -226,12 +248,14 @@ public class UrlCheck {
 					// secure request flag handle
 					if(args[0].contains("m")) runMac = true;
 
-					if(archived || secured || runMac)
+					if(args[0].contains("j") || args[0].contains("json")) jsonOut = true;
+					
+					if(archived || secured || runMac || jsonOut)
 					{
 						for(int i = 1; i < args.length; i++)
 						{
 							System.out.println("File/Directory :  " + args[i]);
-							fileUrlListUp(args[i],archived,secured,runMac);					
+							fileUrlListUp(args[i],archived,secured,runMac,jsonOut);						
 						}		
 					}
 
@@ -241,7 +265,7 @@ public class UrlCheck {
 				for(int i = 0; i < args.length; i++)
 				{
 					System.out.println("File :  " + args[i]);
-					fileUrlListUp(args[i],archived,secured,runMac);					
+					fileUrlListUp(args[i],archived,secured,runMac,jsonOut);						
 				}
 			}
 		}

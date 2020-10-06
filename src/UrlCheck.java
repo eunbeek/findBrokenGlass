@@ -30,6 +30,8 @@ public class UrlCheck {
 
 	static JSONArray list = new JSONArray();
 
+	static int Bad = 0;
+	
 	public static void helpMessage()
 	{
 		System.out.println("========================================================");
@@ -110,6 +112,8 @@ public class UrlCheck {
 	{
 
 		System.out.println("========================================================");
+		System.out.println("End Code : " + Bad);
+		System.out.println("========================================================");
 	}
 
 
@@ -150,6 +154,10 @@ public class UrlCheck {
 							{
 								JSONObject temp = new JSONObject();
 								temp = ConvertJavaToJson.availableURL(str);
+								if((int)temp.get("status") < 200 || (int)temp.get("status") >= 400)
+								{
+									Bad++;
+								}
 								list.add(temp);
 							}
 							else
@@ -159,11 +167,17 @@ public class UrlCheck {
 	
 								if(runMac)
 								{
-									UrlCheckForMac.availableURL(str);
+									if(!UrlCheckForMac.availableURL(str))
+									{
+										Bad++;
+									}
 								}
 								else
 								{
-									UrlCheckForWindow.availableURL(str);
+									if(!UrlCheckForWindow.availableURL(str))
+									{
+										Bad++;
+									}
 								}
 							}
 							// request archived

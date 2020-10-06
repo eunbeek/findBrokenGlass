@@ -23,8 +23,10 @@ public class UrlCheckForWindow {
 			static final int STD_OUTPUT_HANDLE = -11;
 
 			// request url and check the response
-			public static void availableURL(String host)
+			public static boolean availableURL(String host)
 			{
+				boolean result = false;
+				
 				Kernel32 lib = Native.load("kernel32", Kernel32.class);
 
 					try {
@@ -43,7 +45,7 @@ public class UrlCheckForWindow {
 							// response code result
 							if(exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300)
 							{ 
-								
+								result = true;
 								lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), GREEN);
 								System.out.println("["+exitCode.getResponseCode()+"] "+ host +" - Good");							
 								lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
@@ -62,7 +64,7 @@ public class UrlCheckForWindow {
 								
 								// redirect to new location by Recursion itself when it is 301,307,308
 								String newUrl = exitCode.getHeaderField("Location");
-								availableURL(newUrl);	
+								result = availableURL(newUrl);	
 								
 							}
 							else
@@ -78,5 +80,6 @@ public class UrlCheckForWindow {
 						System.out.println("[599] "+ host +" - Fail" );
 						lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
 					}
+					return result;
 			}
 }

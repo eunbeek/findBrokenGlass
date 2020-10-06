@@ -12,9 +12,10 @@ public class UrlCheckForMac {
     public static final String RESET = "\033[0m"; 
     
 	// request url and check the response
-	public static void availableURL(String host)
+	public static boolean availableURL(String host)
 	{
-
+		boolean result = false;
+		
 			try {
 					// request url
 					URL url = new URL(host);
@@ -31,7 +32,7 @@ public class UrlCheckForMac {
 //					// for Mac
 					if(exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300)
 					{ 
-
+						result = true;
 						System.out.println(GREEN+"["+exitCode.getResponseCode()+"] "+ host +" - Good"+RESET);							
 					
 					}
@@ -45,7 +46,7 @@ public class UrlCheckForMac {
 						
 						// redirect to new location by Recursion itself when it is 301,307,308
 						String newUrl = exitCode.getHeaderField("Location");
-						availableURL(newUrl);	
+						result = availableURL(newUrl);	
 						
 					}
 					else
@@ -58,5 +59,6 @@ public class UrlCheckForMac {
 				System.out.println(RED+"[599] "+ host +" - Fail" +RESET);
 
 			}	
+			return result;
 	}
 }

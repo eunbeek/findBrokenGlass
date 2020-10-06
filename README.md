@@ -13,6 +13,10 @@ This repo is a open source tool to check a connection status of URLs found from 
  - Checking whether Urls work with https or not
  - Allow to pass directory paths and recursively process all children under that directory
 
+## New Update
+ - Returning JSON format output (Oct,6 2020)
+ - Exit code, 0 or the number of the broken urls (Oct,6 2020) 
+ 
 ## Getting Started
  
   1. Clone the repo

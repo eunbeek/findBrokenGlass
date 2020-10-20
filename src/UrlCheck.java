@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -20,6 +21,10 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.attribute.BasicFileAttributes;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class UrlCheck {
 	// url set regex
@@ -95,6 +100,11 @@ public class UrlCheck {
 		System.out.println("|  Option v : To check the version                     |");
 		System.out.println("|                                                      |");
 		System.out.println("|  UrlCheck /v                                         |");
+		System.out.println("|                                                      |");
+		System.out.println("|  Option --ignore/-i/                                 |");
+		System.out.println("|                                                      |");
+		System.out.println("|  UrlCheck /i <fileName> <ignoreFileName              |");
+		System.out.println("|  ex) UrlCheck -i index.html index3.txt               |");
 		System.out.println("|                                                      |");
 		System.out.println("| Thanks!                                              |");
 
@@ -229,7 +239,7 @@ public class UrlCheck {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 
 		boolean archived = false;
 		boolean secured = false;
@@ -251,8 +261,56 @@ public class UrlCheck {
 				{
 					System.out.println("UrlChecker v1.0.1");
 				}
-				else
-				{
+				else if(args[0].contains("i") || args[0].contains("ignore")) {
+					String currentDir = System.getProperty("user.dir");
+					String testThis = "\\" + String.valueOf(args[1]);
+					String newDirectory = currentDir + testThis;
+
+					String currentDir2 = System.getProperty("user.dir");
+					String testThis2 = "\\" + String.valueOf(args[2]);
+					String newDirectory2 = currentDir + testThis;
+
+					//Open file & read through each line of html found
+					try {
+						File input = new File(newDirectory);
+						File input2 = new File(newDirectory2);
+						Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
+						Document doc2 = Jsoup.parse(input2, "UTF-8", "http://example.com/");
+
+						Elements links = doc.select("a[href]");
+						Elements links2 = doc2.select("a[href]");
+						for (Element link : links) {
+								String test = link.attr("href");
+									String test2 = links2.attr("href");
+									if (test.equals(test2)){
+										System.out.println("This link is being ignored");
+									}else{
+										URL url = new URL(test);
+										HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+										conn.connect();
+
+										int code = conn.getResponseCode();
+										if (code == 200) {
+											System.out.print("Link :  " + test);
+											System.out.print(" - Code 200 - Link is good" + '\n');
+										}else if(code == 404){
+											System.out.print("Link :  ");
+											System.out.print(" Code 404 - Link is bad" + '\n');
+										}else if(code == 400){
+											System.out.print("Link :  ");
+											System.out.print(" Code 400 - Link is bad" + '\n');
+										}
+									}
+							}
+
+
+							} catch (FileNotFoundException e) {
+								System.out.println("File not Found");
+								System.exit(4);
+							} catch (Exception e) {
+								System.out.print("Link is not in a valid form " + '\n');
+							}
+					}else{
 					// archive flag handle
 					if(args[0].contains("a")) archived = true;
 
@@ -263,19 +321,18 @@ public class UrlCheck {
 					if(args[0].contains("m")) runMac = true;
 
 					if(args[0].contains("j") || args[0].contains("json")) jsonOut = true;
-					
+
 					if(archived || secured || runMac || jsonOut)
 					{
 						for(int i = 1; i < args.length; i++)
 						{
 							System.out.println("File/Directory :  " + args[i]);
-							fileUrlListUp(args[i],archived,secured,runMac,jsonOut);						
-						}		
+							fileUrlListUp(args[i],archived,secured,runMac,jsonOut);
+						}
 					}
 
-				}	
-			}
-			else {
+				}
+			}else {
 				for(int i = 0; i < args.length; i++)
 				{
 					System.out.println("File :  " + args[i]);

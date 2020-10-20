@@ -16,6 +16,7 @@ This repo is a open source tool to check a connection status of URLs found from 
 ## New Update (Oct,6 2020)
  - Returning JSON format output (Oct,6 2020)
  - Exit code, 0 or the number of the broken urls (Oct,6 2020) 
+ - Add Ignore feature to skip list of url in the file (Oct,20 2020)
  
 ## Getting Started
  

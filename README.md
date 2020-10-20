@@ -74,6 +74,11 @@ Please see the appropriate guide for your CLI of choice:
   UrlCheck --j <fileName> 
   ```
   
+  This '-i' or '-ignore' flag ignores links found in the ignore file. *This feature is for windows only*
+  ```bash 
+  UrlCheck -i <fileName> <ignoreFileName>
+  ```
+  
 
  ### PowerShell
   <p align="">

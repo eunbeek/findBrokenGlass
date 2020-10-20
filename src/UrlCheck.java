@@ -26,7 +26,7 @@ public class UrlCheck {
 	final static String regex = "(https?):\\/\\/[-a-zA-Z0-9+&@#%?=~_|!:,.;]*[-a-zA-Z0-9+&@#%=~_|\\/]*";
 
 	// delimiter to get url from input file 
-	final static String delimiter = "[\\[\\]\"<>'\n\b\r]";
+	final static String delimiter = "[\\[\\]\"<>'\n\b\r()]";
 
 	static JSONArray list = new JSONArray();
 

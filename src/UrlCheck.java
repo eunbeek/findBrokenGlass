@@ -27,11 +27,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class UrlCheck {
-	// url set regex
-	final static String regex = "(https?):\\/\\/[-a-zA-Z0-9+&@#%?=~_|!:,.;]*[-a-zA-Z0-9+&@#%=~_|\\/]*";
-
-	// delimiter to get url from input file 
-	final static String delimiter = "[\\[\\]\"<>'\n\b\r()]";
 
 	static JSONArray list = new JSONArray();
 
@@ -130,6 +125,12 @@ public class UrlCheck {
 	// list up url in input file
 	public static void fileUrlListUp(String fName, boolean archived, boolean secured, boolean runMac, boolean jsonOut) 
 	{
+		// url set regex
+		String regex = "(https?):\\/\\/[-a-zA-Z0-9+&@#%?=~_|!:,.;]*[-a-zA-Z0-9+&@#%=~_|\\/]*";
+
+		// delimiter to get url from input file 
+		String delimiter = "[\\[\\]\"<>'\n\b\r()]";
+		
 		String regSecure = "^(http)://";
 		Pattern pat = Pattern.compile(regex, Pattern.MULTILINE);
 
@@ -162,13 +163,12 @@ public class UrlCheck {
 						{
 							if(jsonOut)
 							{
-								JSONObject temp = new JSONObject();
-								temp = ConvertJavaToJson.availableURL(str);
-								if((int)temp.get("status") < 200 || (int)temp.get("status") >= 400)
-								{
-									Bad++;
-								}
-								list.add(temp);
+								JSONObject convertJsonLine = new JSONObject();
+								convertJsonLine = ConvertJavaToJson.availableURL(str);
+
+								countBadUrl((int)convertJsonLine.get("status") < 200 || (int)convertJsonLine.get("status") >= 400);
+								
+								list.add(convertJsonLine);
 							}
 							else
 							{					
@@ -177,17 +177,12 @@ public class UrlCheck {
 	
 								if(runMac)
 								{
-									if(!UrlCheckForMac.availableURL(str))
-									{
-										Bad++;
-									}
+									countBadUrl(!UrlCheckForMac.availableURL(str));
 								}
 								else
 								{
-									if(!UrlCheckForWindow.availableURL(str))
-									{
-										Bad++;
-									}
+
+									countBadUrl(!UrlCheckForWindow.availableURL(str));
 								}
 							}
 							// request archived
@@ -368,6 +363,12 @@ public class UrlCheck {
 		});
 
 		return files;
+	}
+	
+	public static void countBadUrl(boolean badUrl)
+	{
+		
+		if(badUrl) Bad++;
 	}
 
 }

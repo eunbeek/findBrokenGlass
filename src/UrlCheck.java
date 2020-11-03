@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -25,6 +26,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.json.simple.parser.*;
+
 
 public class UrlCheck {
 
@@ -68,6 +71,10 @@ public class UrlCheck {
 		System.out.println("|                                                      |");
 		System.out.println("|  UrlCheck --v                                        |");
 		System.out.println("|  UrlCheck --version                                  |");
+		System.out.println("|                                                      |");
+		System.out.println("|  Option t : To check the lastest 10 posts            |");
+		System.out.println("|                                                      |");
+		System.out.println("|  UrlCheck --t                                        |");
 		System.out.println("|                                                      |");
 		System.out.println("|                                                      |");
 		System.out.println("|  For Mac :                                           |");
@@ -186,7 +193,9 @@ public class UrlCheck {
 								}
 							}
 							// request archived
-							if(archived) archiveUrl(str);
+							if(archived) System.out.println(archiveUrl("http://archive.org/wayback/available?url=",str));
+							
+							
 						}
 					}
 				}
@@ -203,12 +212,11 @@ public class UrlCheck {
 	}
 
 	// Archive API
-	public static void archiveUrl(String host)
+	public static String archiveUrl(String iUrl,String host)
 	{
 
-		String apiUrl = "http://archive.org/wayback/available?url=" + host;
+		String apiUrl = iUrl + host;
 		StringBuilder sb = new StringBuilder();
-
 
 		try {
 			URL	url = new URL(apiUrl);
@@ -226,13 +234,47 @@ public class UrlCheck {
 				}
 				brd.close();
 			}
-			System.out.println(sb);
 
 		}catch(Exception e)
 		{
 			throw new RuntimeException("Exception URL : "+ host, e);
 		}
+		
+		return sb.toString();
 	}
+	
+	// Get Url From Telescope
+	public static void getUrlFromTelescope(boolean runMac)
+	{
+		String apiUrl = "http://localhost:3000";
+		String jsonText = archiveUrl(apiUrl+"/posts", "");
+			
+		String delimiter = "[\\[\\],\"\\{\\}\\:]";
+		String regex = "^[/]";
+		Pattern pat = Pattern.compile(regex, Pattern.MULTILINE);
+
+		String[] values = jsonText.split(delimiter);
+		
+		for(String i : values)
+		{
+			Matcher matcher = pat.matcher(i);
+			if(matcher.find())
+			{
+				String tempUrl = apiUrl + i;
+				if(runMac)
+				{
+					countBadUrl(!UrlCheckForMac.availableURL(tempUrl));
+				}
+				else
+				{
+					countBadUrl(!UrlCheckForWindow.availableURL(tempUrl));
+				}
+			}
+			
+		}
+	}
+	
+
 
 	public static void main(String[] args) throws IOException{
 
@@ -240,6 +282,7 @@ public class UrlCheck {
 		boolean secured = false;
 		boolean runMac = false;
 		boolean jsonOut = false;
+		boolean telescope = false;
 
 		if(args.length == 0 || args[0].toLowerCase().equals("help"))
 		{
@@ -316,6 +359,8 @@ public class UrlCheck {
 					if(args[0].contains("m")) runMac = true;
 
 					if(args[0].contains("j") || args[0].contains("json")) jsonOut = true;
+					
+					if(args[0].contains("t")) getUrlFromTelescope(runMac);
 
 					if(archived || secured || runMac || jsonOut)
 					{

@@ -13,10 +13,11 @@ This repo is a open source tool to check a connection status of URLs found from 
  - Checking whether Urls work with https or not
  - Allow to pass directory paths and recursively process all children under that directory
 
-## New Update (Oct,6 2020)
+## New Update (Nov 3, 2020)
  - Returning JSON format output (Oct,6 2020)
- - Exit code, 0 or the number of the broken urls (Oct,6 2020) 
- - Add Ignore feature to skip list of url in the file (Oct,20 2020)
+ - Exit code, 0 or the number of the broken urls (Oct 6, 2020) 
+ - Add Ignore feature to skip list of url in the file (Oct 20, 2020)
+ - Add Check Telescope feature (Nov 3,2020)
  
 ## Getting Started
  
@@ -79,6 +80,10 @@ Please see the appropriate guide for your CLI of choice:
   ```bash 
   UrlCheck -i <fileName> <ignoreFileName>
   ```
+  This '-t' flag checks the latest 10 post links found in the telescope installed in local machine.
+  ```bash 
+  UrlCheck -t
+  ```
   
 
  ### PowerShell
@@ -90,7 +95,11 @@ Please see the appropriate guide for your CLI of choice:
   ```bash
   ./UrlCheck 
   ```
- 
+  This '-t' flag checks the latest 10 post links found in the telescope installed in local machine.
+  ```bash 
+  ./UrlCheck -t
+  ```
+  
  ### Mac Terminal
   <p align="">
  <img src="./asset/macTool.png" alt="DefaultPic" width="738"/>
@@ -102,6 +111,10 @@ Please see the appropriate guide for your CLI of choice:
  
   ```bash
   java -jar UrlCheck.jar /v
+  ```
+  
+  ```bash
+  java -jar UrlCheck.jar /t
   ```
 
 ## Library 

@@ -1,0 +1,12 @@
+<Project projectName="findBrokenGlass">
+  <Jar>.\bin</Jar>
+  <AuxClasspathEntry>.\bin</AuxClasspathEntry>
+  <AuxClasspathEntry>.\lib\jna-5.6.0.jar</AuxClasspathEntry>
+  <AuxClasspathEntry>.\lib\json-simple-1.1.jar</AuxClasspathEntry>
+  <AuxClasspathEntry>.\lib\jsoup-1.13.1.jar</AuxClasspathEntry>
+  <AuxClasspathEntry>.\lib\google-java-format-1.9-all-deps.jar</AuxClasspathEntry>
+  <AuxClasspathEntry>..\..\..\..\..\..\..\..\program files\java\jre1.8.0_191\lib\rt.jar</AuxClasspathEntry>
+  <AuxClasspathEntry>..\..\..\..\..\..\..\..\program files\java\jre1.8.0_191\lib\jce.jar</AuxClasspathEntry>
+  <SrcDir>.\src</SrcDir>
+  <WrkDir>.</WrkDir>
+</Project>

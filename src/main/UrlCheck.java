@@ -1,3 +1,5 @@
+package main;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -28,7 +30,8 @@ public class UrlCheck {
 
   static JSONArray list = new JSONArray();
 
-  static int bad = 0;
+  public static int bad = 0;
+  public static String apiUrl = "http://localhost:3000";
 
   public static void helpMessage() {
     System.out.println("========================================================");
@@ -122,12 +125,12 @@ public class UrlCheck {
   public static void fileUrlListUp(
       String fName, boolean archived, boolean secured, boolean runMac, boolean jsonOut) {
     // url set regex
-    String regex = "(https?):\\/\\/[-a-zA-Z0-9+&@#%?=~_|!:,.;]*[-a-zA-Z0-9+&@#%=~_|\\/]*";
+    String regex = "(https?):\\/\\/[-a-zA-Z0-9+&@#%?=~_|!:,.;][-a-zA-Z0-9+&@#%=~_|\\/]*";
 
     // delimiter to get url from input file
-    String delimiter = "[\\[\\]\"<>'\n\b\r()]";
+    String delimiter = "[\\[\\]\"<>'\n\b\r()= {};|]";
 
-    String regSecure = "^(http)://";
+    String regSecure = "http:\\/\\/";
     Pattern pat = Pattern.compile(regex, Pattern.MULTILINE);
 
     try {
@@ -165,7 +168,6 @@ public class UrlCheck {
               } else {
                 // change http to https
                 if (secured) str = str.replaceFirst(regSecure, "https://");
-
                 if (runMac) {
                   countBadUrl(!UrlCheckForMac.availableURL(str));
                 } else {
@@ -203,7 +205,7 @@ public class UrlCheck {
 
       BufferedReader brd =
           new BufferedReader(new InputStreamReader(con.getInputStream(), Charset.defaultCharset()));
-      //  if (brd != null) {
+      // if (brd != null) {
       int cp;
       while ((cp = brd.read()) != -1) {
         sb.append((char) cp);
@@ -221,8 +223,8 @@ public class UrlCheck {
   }
 
   // Get Url From Telescope
-  public static void getUrlFromTelescope(boolean runMac) {
-    String apiUrl = "http://localhost:3000";
+  public static void getUrlFromTelescope(boolean runMac, String apiUrl) {
+
     String jsonText = archiveUrl(apiUrl + "/posts", "");
 
     String delimiter = "[\\[\\],\"\\{\\}\\:]";
@@ -320,7 +322,7 @@ public class UrlCheck {
 
           if (args[0].contains("j") || args[0].contains("json")) jsonOut = true;
 
-          if (args[0].contains("t")) getUrlFromTelescope(runMac);
+          if (args[0].contains("t")) getUrlFromTelescope(runMac, apiUrl);
 
           if (archived || secured || runMac || jsonOut) {
             for (int i = 1; i < args.length; i++) {

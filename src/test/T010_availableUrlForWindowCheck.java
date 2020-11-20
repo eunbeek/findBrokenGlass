@@ -1,8 +1,9 @@
 package test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
+
 import main.UrlCheckForWindow;
+import org.junit.jupiter.api.Test;
 
 class T010_availableUrlForWindowCheck {
 
@@ -19,5 +20,4 @@ class T010_availableUrlForWindowCheck {
     // Good Host
     assertTrue(!urlCheck.availableURL(badHost));
   }
-
 }

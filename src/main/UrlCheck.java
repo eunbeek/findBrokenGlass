@@ -122,8 +122,8 @@ public class UrlCheck {
   }
 
   // list up url in input file
-  public static void fileUrlListUp(String fName, boolean archived, boolean secured, boolean runMac,
-      boolean jsonOut) {
+  public static void fileUrlListUp(
+      String fName, boolean archived, boolean secured, boolean runMac, boolean jsonOut) {
     // url set regex
     String regex = "(https?):\\/\\/[-a-zA-Z0-9+&@#%?=~_|!:,.;][-a-zA-Z0-9+&@#%=~_|\\/]*";
 
@@ -160,14 +160,14 @@ public class UrlCheck {
                 JSONObject convertJsonLine = new JSONObject();
                 convertJsonLine = ConvertJavaToJson.availableURL(str);
 
-                countBadUrl((int) convertJsonLine.get("status") < 200
-                    || (int) convertJsonLine.get("status") >= 400);
+                countBadUrl(
+                    (int) convertJsonLine.get("status") < 200
+                        || (int) convertJsonLine.get("status") >= 400);
 
                 list.add(convertJsonLine);
               } else {
                 // change http to https
-                if (secured)
-                  str = str.replaceFirst(regSecure, "https://");
+                if (secured) str = str.replaceFirst(regSecure, "https://");
                 if (runMac) {
                   countBadUrl(!UrlCheckForMac.availableURL(str));
                 } else {
@@ -181,8 +181,7 @@ public class UrlCheck {
             }
           }
         }
-        if (jsonOut)
-          System.out.println(list);
+        if (jsonOut) System.out.println(list);
         br.close();
       }
     } catch (FileNotFoundException e) {
@@ -313,22 +312,17 @@ public class UrlCheck {
           }
         } else {
           // archive flag handle
-          if (args[0].contains("a"))
-            archived = true;
+          if (args[0].contains("a")) archived = true;
 
           // secure request flag handle
-          if (args[0].contains("s"))
-            secured = true;
+          if (args[0].contains("s")) secured = true;
 
           // secure request flag handle
-          if (args[0].contains("m"))
-            runMac = true;
+          if (args[0].contains("m")) runMac = true;
 
-          if (args[0].contains("j") || args[0].contains("json"))
-            jsonOut = true;
+          if (args[0].contains("j") || args[0].contains("json")) jsonOut = true;
 
-          if (args[0].contains("t"))
-            getUrlFromTelescope(runMac, apiUrl);
+          if (args[0].contains("t")) getUrlFromTelescope(runMac, apiUrl);
 
           if (archived || secured || runMac || jsonOut) {
             for (int i = 1; i < args.length; i++) {
@@ -353,28 +347,30 @@ public class UrlCheck {
 
     ArrayList<String> files = new ArrayList<String>();
 
-    Files.walkFileTree(Paths.get(path), new SimpleFileVisitor<Path>() {
+    Files.walkFileTree(
+        Paths.get(path),
+        new SimpleFileVisitor<Path>() {
 
-      @Override
-      public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+          @Override
+          public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
+              throws IOException {
 
-        files.add(file.toString());
-        return FileVisitResult.CONTINUE;
-      }
+            files.add(file.toString());
+            return FileVisitResult.CONTINUE;
+          }
 
-      @Override
-      public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-        System.err.println(exc);
-        return FileVisitResult.CONTINUE;
-      }
-    });
+          @Override
+          public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+            System.err.println(exc);
+            return FileVisitResult.CONTINUE;
+          }
+        });
 
     return files;
   }
 
   public static void countBadUrl(boolean badUrl) {
 
-    if (badUrl)
-      bad++;
+    if (badUrl) bad++;
   }
 }

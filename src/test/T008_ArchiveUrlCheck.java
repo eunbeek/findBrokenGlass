@@ -2,8 +2,9 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import org.junit.jupiter.api.Test;
+
 import main.UrlCheck;
+import org.junit.jupiter.api.Test;
 
 class T008_ArchiveUrlCheck {
 
@@ -31,7 +32,5 @@ class T008_ArchiveUrlCheck {
     } catch (RuntimeException e) {
       assertFalse(true);
     }
-
   }
-
 }

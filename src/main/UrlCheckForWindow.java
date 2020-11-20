@@ -1,10 +1,10 @@
 package main;
 
+import com.sun.jna.Library;
+import com.sun.jna.Native;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-import com.sun.jna.Library;
-import com.sun.jna.Native;
 
 interface Kernel32 extends Library {
 
@@ -12,7 +12,6 @@ interface Kernel32 extends Library {
 
   int GetStdHandle(int u32_Device);
 }
-
 
 public class UrlCheckForWindow {
 
@@ -52,7 +51,8 @@ public class UrlCheckForWindow {
         lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), RED);
         System.out.println("[" + exitCode.getResponseCode() + "] " + host + " - Bad");
         lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), WHITE);
-      } else if (exitCode.getResponseCode() == 301 || exitCode.getResponseCode() == 307
+      } else if (exitCode.getResponseCode() == 301
+          || exitCode.getResponseCode() == 307
           || exitCode.getResponseCode() == 308) {
         lib.SetConsoleTextAttribute(lib.GetStdHandle(STD_OUTPUT_HANDLE), BLUE);
         System.out.println("[" + exitCode.getResponseCode() + "] " + host + " - Redirect");

@@ -1,9 +1,10 @@
 package test;
 
 import static org.junit.Assert.assertTrue;
+
+import main.ConvertJavaToJson;
 import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
-import main.ConvertJavaToJson;
 
 class T011_availableUrlWithJsonCheck {
 
@@ -32,5 +33,4 @@ class T011_availableUrlWithJsonCheck {
     assertTrue(!expected.get("url").equals(convertJsonLine2.get("url")));
     assertTrue(!expected.get("status").equals(convertJsonLine2.get("status")));
   }
-
 }

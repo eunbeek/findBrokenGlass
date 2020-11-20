@@ -11,7 +11,7 @@ class T004_DefaultUrlCheck {
   @Test
   @SuppressWarnings("static-access")
   void testMain() {
-    String[] args = {"urls.html"};
+    String[] args = {"index.html"};
 
     UrlCheck urlCheck = new UrlCheck();
     try {

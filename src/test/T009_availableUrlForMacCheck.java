@@ -1,8 +1,9 @@
 package test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
+
 import main.UrlCheckForMac;
+import org.junit.jupiter.api.Test;
 
 class T009_availableUrlForMacCheck {
 
@@ -19,9 +20,5 @@ class T009_availableUrlForMacCheck {
 
     // Good Host
     assertTrue(!urlCheck.availableURL(badHost));
-
-
-
   }
-
 }

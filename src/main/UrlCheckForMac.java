@@ -32,23 +32,24 @@ public class UrlCheckForMac {
       // for Mac
       if (exitCode.getResponseCode() >= 200 && exitCode.getResponseCode() < 300) {
         result = true;
-        System.out
-            .println(GREEN + "[" + exitCode.getResponseCode() + "] " + host + " - Good" + RESET);
+        System.out.println(
+            GREEN + "[" + exitCode.getResponseCode() + "] " + host + " - Good" + RESET);
 
       } else if (exitCode.getResponseCode() >= 400 && exitCode.getResponseCode() < 500) {
         System.out.println(RED + "[" + exitCode.getResponseCode() + "] " + host + " - Bad" + RESET);
-      } else if (exitCode.getResponseCode() == 301 || exitCode.getResponseCode() == 307
+      } else if (exitCode.getResponseCode() == 301
+          || exitCode.getResponseCode() == 307
           || exitCode.getResponseCode() == 308) {
-        System.out
-            .println(BLUE + "[" + exitCode.getResponseCode() + "] " + host + " - Redirect" + RESET);
+        System.out.println(
+            BLUE + "[" + exitCode.getResponseCode() + "] " + host + " - Redirect" + RESET);
 
         // redirect to new location by Recursion itself when it is 301,307,308
         String newUrl = exitCode.getHeaderField("Location");
         result = availableURL(newUrl);
 
       } else {
-        System.out
-            .println(RED + "[" + exitCode.getResponseCode() + "] " + host + " - Unknown" + RESET);
+        System.out.println(
+            RED + "[" + exitCode.getResponseCode() + "] " + host + " - Unknown" + RESET);
       }
     } catch (RuntimeException e) {
       throw e;

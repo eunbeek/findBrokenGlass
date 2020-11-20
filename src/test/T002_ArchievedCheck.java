@@ -24,5 +24,4 @@ class T002_ArchievedCheck {
     }
     assertTrue(true);
   }
-
 }

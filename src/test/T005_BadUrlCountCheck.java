@@ -11,12 +11,12 @@ class T005_BadUrlCountCheck {
 
     UrlCheck urlCheck = new UrlCheck();
 
+    int currentBad = urlCheck.bad;
+
     urlCheck.countBadUrl(false);
-    assertTrue(urlCheck.bad == 0);
+    assertTrue(urlCheck.bad == currentBad);
 
     urlCheck.countBadUrl(true);
-    assertTrue(urlCheck.bad == 1);
-
+    assertTrue(urlCheck.bad == currentBad + 1);
   }
-
 }

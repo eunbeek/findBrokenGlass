@@ -1,11 +1,12 @@
 package test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
-import junit.framework.TestCase;
 import main.UrlCheck;
 
-class T001_VersionCheck extends TestCase {
+class T001_VersionCheck {
 
   @Test
   @SuppressWarnings("static-access")

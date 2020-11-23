@@ -16,6 +16,9 @@
       </plugin>
     </plugins>
   </build>
+  <properties>
+  	 <webapp.lib>${basedir}/lib</webapp.lib>
+  </properties>
   <dependencies>
   	<dependency>
   		<groupId>org.junit.jupiter</groupId>

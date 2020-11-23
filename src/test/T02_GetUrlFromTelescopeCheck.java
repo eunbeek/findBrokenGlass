@@ -2,14 +2,13 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
+import org.junit.Test;
 import main.UrlCheck;
-import org.junit.jupiter.api.Test;
 
-class T006_GetUrlFromTelescopeCheck {
+public class T02_GetUrlFromTelescopeCheck {
 
   @Test
-  void testGetUrlFromTelescope() {
+  public void testGetUrlFromTelescope() {
     String apiUrl = "https://telescope.cdot.systems";
     String brokenUrl = "http://example.com";
     UrlCheck urlCheck = new UrlCheck();
@@ -34,4 +33,5 @@ class T006_GetUrlFromTelescopeCheck {
       assertFalse(false);
     }
   }
+
 }

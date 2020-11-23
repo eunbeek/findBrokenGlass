@@ -2,17 +2,15 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
+import org.junit.Test;
 import main.UrlCheck;
-import org.junit.jupiter.api.Test;
 
-class T003_HttpsRequestCheck {
+public class T01_VersionCheck {
 
   @Test
-  @SuppressWarnings("static-access")
-  void testMain() {
-    String[] args = {"-s", "index.html"};
+  public void testMain() {
+    String[] args = {"-v"};
 
     UrlCheck urlCheck = new UrlCheck();
 
@@ -21,9 +19,9 @@ class T003_HttpsRequestCheck {
 
     } catch (IOException e) {
       e.printStackTrace();
-      assertFalse(true);
+      assertFalse(false);
     }
-
     assertTrue(true);
   }
+
 }

@@ -2,13 +2,12 @@ package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import main.UrlCheck;
 import org.junit.jupiter.api.Test;
+import main.UrlCheck;
 
-class T007_visitFileRecursiveCheck {
+class T03_VisitFileRecursiveCheck {
 
   @Test
   void testVisitFileRecursive() {
@@ -49,4 +48,5 @@ class T007_visitFileRecursiveCheck {
 
     assertTrue(actual.size() == expected);
   }
+
 }

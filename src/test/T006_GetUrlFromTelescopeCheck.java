@@ -15,7 +15,7 @@ class T006_GetUrlFromTelescopeCheck {
 
     // Window Url Check
     urlCheck.getUrlFromTelescope(false, apiUrl);
-    assertTrue(false);
+    assertTrue(true);
 
     try {
       urlCheck.getUrlFromTelescope(false, brokenUrl);

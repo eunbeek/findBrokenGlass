@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 import main.UrlCheck;
 
@@ -10,14 +10,13 @@ class T02_BadUrlCountCheckTest {
   void testCountBadUrl() {
 
     UrlCheck urlCheck = new UrlCheck();
-
     int currentBad = urlCheck.bad;
 
     urlCheck.countBadUrl(false);
-    assertTrue(urlCheck.bad == currentBad);
+    assertEquals(currentBad, urlCheck.bad);
 
     urlCheck.countBadUrl(true);
-    assertTrue(urlCheck.bad == currentBad + 1);
+    assertEquals(currentBad + 1, urlCheck.bad);
   }
 
 }

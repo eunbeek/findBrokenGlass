@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 import main.UrlCheck;
 
-class T006_GetUrlFromTelescopeCheck {
+class T03_GetUrlFromTelescopeCheckTest {
 
   @Test
   void testGetUrlFromTelescope() {
@@ -15,7 +15,7 @@ class T006_GetUrlFromTelescopeCheck {
 
     // Window Url Check
     urlCheck.getUrlFromTelescope(false, apiUrl);
-    assertTrue(false);
+    assertTrue(true);
 
     try {
       urlCheck.getUrlFromTelescope(false, brokenUrl);

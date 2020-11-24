@@ -10,7 +10,8 @@ class T01_DefaultUrlCheckTest {
 
   @Test
   void testMain() {
-    String[] args = {"index.html"};
+    // String[] args = {"index.html"};
+    String[] args = {"testFile/google.txt"};
 
     UrlCheck urlCheck = new UrlCheck();
     try {

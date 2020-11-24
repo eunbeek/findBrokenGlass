@@ -12,7 +12,7 @@ class T02_BadUrlCountCheckTest {
     UrlCheck urlCheck = new UrlCheck();
     int currentBad = urlCheck.bad;
 
-    urlCheck.countBadUrl(false);
+    urlCheck.countBadUrl(true);
     assertEquals(currentBad, urlCheck.bad);
 
     urlCheck.countBadUrl(true);

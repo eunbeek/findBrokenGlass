@@ -22,3 +22,14 @@
 - Plug-In : Help > Eclipse Marketplace > Search > Find SpotBugs
 - StandAlone :  java -jar lib/spotbugs/spotbugs.jar -project SpotBugs.fbp
 				Run SpotBugs.bat
+
+## Write Test case with tools 
+
+### JUnit Test framework
+- Naming : T0#_functionNameCheckTest
+- Path : src/test
+- Assertion : assertEquals(expected, actual)
+
+### EclEmma Code Coverage 
+- Plug-In : Help > Eclipse Marketplace > Search > Find EclEmma > Coverage As 
+

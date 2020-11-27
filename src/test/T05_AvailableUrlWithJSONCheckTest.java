@@ -10,7 +10,7 @@ public class T05_AvailableUrlWithJSONCheckTest {
 	@Test
 	void testAvailableUrlWithJSON() {
 		String goodHost = "https://www.google.com";
-		String badHost = "http://www.example.com";
+		String badHost = "http://google.com/nope";
 		
 		JSONObject expected = new JSONObject();
 		expected.put("url", goodHost);

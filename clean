@@ -1,0 +1,313 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ----------------------< com.ekim:findBrokenGlass >----------------------
+[INFO] Building com.ekim:findBrokenGlass 1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ findBrokenGlass ---
+[WARNING] Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ findBrokenGlass ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ findBrokenGlass ---
+[WARNING] Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ findBrokenGlass ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding MS949, i.e. build is platform dependent!
+[INFO] Compiling 6 source files to C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\test-classes
+[INFO] /C:/Users/eunbee/Desktop/college/S5/OSD/Release/findBrokenGlass/src/test/T06_ConvertJavaToJsonTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/eunbee/Desktop/college/S5/OSD/Release/findBrokenGlass/src/test/T06_ConvertJavaToJsonTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ findBrokenGlass ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running test.T01_DefaultUrlCheckTest
+========================================================
+|             URL TEST RUNNING                         |
+========================================================
+File :  testFile/google.txt
+
+"testFile/google.txt" is checking...
+[200] http://google.com - Good
+========================================================
+End Code : 0
+========================================================
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.801 s - in test.T01_DefaultUrlCheckTest
+[INFO] Running test.T02_BadUrlCountCheckTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in test.T02_BadUrlCountCheckTest
+[INFO] Running test.T03_GetUrlFromTelescopeCheckTest
+[200] https://telescope.cdot.systems/posts/390acc843a - Good
+[200] https://telescope.cdot.systems/posts/0b7f55cd44 - Good
+[200] https://telescope.cdot.systems/posts/b3bb4bfa78 - Good
+[200] https://telescope.cdot.systems/posts/aed8db66c2 - Good
+[200] https://telescope.cdot.systems/posts/921449ac8b - Good
+HERE
+[0;32m[200] https://telescope.cdot.systems/posts/390acc843a - Good[0m
+HERE
+[0;32m[200] https://telescope.cdot.systems/posts/0b7f55cd44 - Good[0m
+HERE
+[0;32m[200] https://telescope.cdot.systems/posts/b3bb4bfa78 - Good[0m
+HERE
+[0;32m[200] https://telescope.cdot.systems/posts/aed8db66c2 - Good[0m
+HERE
+[0;32m[200] https://telescope.cdot.systems/posts/921449ac8b - Good[0m
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.76 s - in test.T03_GetUrlFromTelescopeCheckTest
+[INFO] Running test.T04_AvailableUrlMacCheckTest
+Dec 03, 2020 12:43:09 PM apisimulator.shaded.com.apimastery.logging.LoggerFactory logLoggingFramework
+INFO: apisimulator.shaded.com.apimastery.logging.LoggerFactory.initLoggerFactory(): Using JUL (java.util.logging) for logging
+Dec 03, 2020 12:43:09 PM apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable init
+INFO: apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable.init(String[] args): initialization in progress...
+Dec 03, 2020 12:43:09 PM apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable init
+INFO: apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable.init(String[] args): {java version:"11.0.9+7-LTS", jvm name:"Java HotSpot(TM) 64-Bit Server VM", jvm version:"11.0.9+7-LTS", jvm pid:12852}
+Dec 03, 2020 12:43:09 PM apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable init
+INFO: apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable.init(String[] args): implementation {title:"Embedded HTTP API Simulator",version:"1.7"}
+Dec 03, 2020 12:43:09 PM apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable init
+INFO: apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable.init(String[] args): args=[-p, 6090, -c, jar:file:/C:/Users/eunbee/.m2/repository/com/apisimulator/apisimulator-http-embedded/1.7/apisimulator-http-embedded-1.7.jar!/simulator/config, -s, jar:file:/C:/Users/eunbee/.m2/repository/com/apisimulator/apisimulator-http-embedded/1.7/apisimulator-http-embedded-1.7.jar!/simulator/simlets, -d, _default, -h, localhost, -configs_prime, false]
+Dec 03, 2020 12:43:09 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:10 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Refreshing apisimulator.shaded.org.springframework.context.support.GenericApplicationContext@1c3b9394: startup date [Thu Dec 03 12:43:10 EST 2020]; root of context hierarchy
+Dec 03, 2020 12:43:10 PM apisimulator.shaded.com.apisimulator.netty.tls.TlsHandlerFactorySupport buildSslContext
+INFO: apisimulator.shaded.com.apisimulator.netty.tls.TlsHandlerFactorySupport: ALPN=true; OpenSSL=true
+Dec 03, 2020 12:43:11 PM apisimulator.shaded.com.apisimulator.netty.NettySimulatorServer$1 operationComplete
+INFO: apisimulator.shaded.com.apisimulator.netty.NettySimulatorServer.start(): listening on localhost:6090
+Dec 03, 2020 12:43:11 PM apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable start
+INFO: apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable.start(): API Simulator started
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Refreshing apisimulator.shaded.org.springframework.context.support.GenericApplicationContext@2e6f610d: startup date [Thu Dec 03 12:43:12 EST 2020]; root of context hierarchy
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Refreshing apisimulator.shaded.org.springframework.context.support.GenericApplicationContext@65b97f47: startup date [Thu Dec 03 12:43:12 EST 2020]; root of context hierarchy
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Loading XML bean definitions from Byte array resource [resource loaded from byte array]
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.org.apache.commons.logging.impl.JclWrapperLog info
+INFO: Refreshing apisimulator.shaded.org.springframework.context.support.GenericApplicationContext@2aff9dff: startup date [Thu Dec 03 12:43:12 EST 2020]; root of context hierarchy
+com.apisimulator.embedded.http.HttpSimletResponse@151bf776
+HERE
+[0;32m[200] http://www.google.com/return/200 - Good[0m
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.com.apisimulator.simulation.impl.RenderOutputSimulationStep logStats
+INFO: /127.0.0.1:53688 > /127.0.0.1:6090|GET http://www.google.com/return/200|200|0|test-google-good|0ms|84ms
+HERE
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.com.apisimulator.simulation.impl.RenderOutputSimulationStep logStats
+INFO: /127.0.0.1:53689 > /127.0.0.1:6090|GET http://google.com/return/404|404|0|test-google-bad|0ms|10ms
+[0;31m[404] http://google.com/return/404 - Bad[0m
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.com.apisimulator.netty.NettySimulatorServer stop
+INFO: apisimulator.shaded.com.apisimulator.netty.NettySimulatorServer.stop(): listener on localhost:6090 stopped
+Dec 03, 2020 12:43:12 PM apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable stop
+INFO: apisimulator.shaded.com.apisimulator.launcher.AbstractLaunchable.stop(): API Simulator stopped
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.802 s - in test.T04_AvailableUrlMacCheckTest
+[INFO] Running test.T05_AvailableUrlWithJSONCheckTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in test.T05_AvailableUrlWithJSONCheckTest
+[INFO] Running test.T06_ConvertJavaToJsonTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in test.T06_ConvertJavaToJsonTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ findBrokenGlass ---
+[INFO] 
+[INFO] --- maven-javadoc-plugin:3.0.0:jar (attach-javadocs) @ findBrokenGlass ---
+[WARNING] Source files encoding has not been set, using platform encoding MS949, i.e. build is platform dependent!
+[INFO] 
+Loading source files for package main...
+Loading source files for package test...
+Constructing Javadoc information...
+Standard Doclet version 11.0.9
+Building tree for all the packages and classes...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\ConvertJavaToJson.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\UrlCheck.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\UrlCheckForMac.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\UrlCheckForWindow.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\test\T05_AvailableUrlWithJSONCheckTest.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\package-summary.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\package-tree.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\test\package-summary.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\test\package-tree.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\constant-values.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\class-use\ConvertJavaToJson.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\class-use\UrlCheck.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\class-use\UrlCheckForMac.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\class-use\UrlCheckForWindow.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\test\class-use\T05_AvailableUrlWithJSONCheckTest.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\main\package-use.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\test\package-use.html...
+Building index for all the packages and classes...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\overview-tree.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\index-all.html...
+Building index for all classes...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\allclasses-index.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\allpackages-index.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\deprecated-list.html...
+Building index for all classes...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\allclasses.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\allclasses.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\index.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\overview-summary.html...
+Generating C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\apidocs\help-doc.html...
+100 warnings
+[WARNING] Javadoc Warnings
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[WARNING] javadoc: warning - The code being documented uses modules but the packages defined in https://docs.oracle.com/javase/8/docs/api/ are in the unnamed module.
+[INFO] Building jar: C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0-javadoc.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (attach-sources) > generate-sources @ findBrokenGlass >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (attach-sources) < generate-sources @ findBrokenGlass <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (attach-sources) @ findBrokenGlass ---
+[INFO] Building jar: C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0-sources.jar
+[INFO] 
+[INFO] --- maven-gpg-plugin:1.5:sign (sign-artifacts) @ findBrokenGlass ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ findBrokenGlass ---
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0.jar to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0.jar
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\pom.xml to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0.pom
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0-javadoc.jar to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0-javadoc.jar
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0-sources.jar to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0-sources.jar
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0.jar.asc to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0.jar.asc
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0.pom.asc to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0.pom.asc
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0-javadoc.jar.asc to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0-javadoc.jar.asc
+[INFO] Installing C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\findBrokenGlass-1.0-sources.jar.asc to C:\Users\eunbee\.m2\repository\com\ekim\findBrokenGlass\1.0\findBrokenGlass-1.0-sources.jar.asc
+[INFO] 
+[INFO] --- nexus-staging-maven-plugin:1.6.8:deploy (injected-nexus-deploy) @ findBrokenGlass ---
+[INFO] Performing local staging (local stagingDirectory="C:\Users\eunbee\Desktop\college\S5\OSD\Release\findBrokenGlass\target\nexus-staging\staging")...
+[INFO]  + Using server credentials "ossrh" from Maven settings.
+[INFO]  * Connected to Nexus at https://oss.sonatype.org:443/, is version 2.14.19-01 and edition "Professional"
+[ERROR] 
+[ERROR] Nexus Error Response: 400 - Bad Request
+[ERROR]   * - Unable to find matching profile
+[ERROR] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.894 s
+[INFO] Finished at: 2020-12-03T12:43:21-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.sonatype.plugins:nexus-staging-maven-plugin:1.6.8:deploy (injected-nexus-deploy) on project findBrokenGlass: Could not perform action: Nexus ErrorResponse received! Unable to find matching profile -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

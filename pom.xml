@@ -1,78 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>findBrokenGlass</groupId>
+  <groupId>com.github.eunbeek</groupId>
   <artifactId>findBrokenGlass</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>	 
+   
+  <name>findBrokenGlass</name>
+  <description>This library is for finding broken url in input file</description>
+  <url>https://github.com/eunbeek/findBrokenGlass</url>
+  
+  <licenses> 
+ 	<license>  
+		<name>MIT License</name>              
+ 		<url>http://www.opensource.org/licenses/mit-license.php</url>       
+ 	</license> 
+  </licenses> 
+  
+	<developers> 
+		<developer>
+		  <name>Eunbee Kim</name>
+		  <email>dmsql1678@gmail.com</email>
+		  <organization>Seneca-CDOT</organization>
+		  <organizationUrl>https://github.com/Seneca-CDOT</organizationUrl>
+		</developer> 	
+	</developers>
+	
+	<scm>   
+		<connection>scm:git:git@github.com:eunbeek/findBrokenGlass.git</connection>   
+		<developerConnection>scm:git:git@github.com:eunbeek/findBrokenGlass.git</developerConnection>   
+		<url>https://github.com/eunbeek/findBrokenGlass.git</url> 
+	</scm> 
+	
+	<distributionManagement> 
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+		   <id>ossrh</id>
+		   <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository> 
+	</distributionManagement> 
+
  <build>
     <sourceDirectory>src</sourceDirectory>
     <testSourceDirectory>src/test</testSourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-      	<groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-         <version>2.22.0</version>
-      </plugin>
+    
+    <pluginManagement>
+    	<plugins>
+    			<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+					<configuration>
+						<release>11</release>
+					</configuration>
+				</plugin>
+    	</plugins>
+    </pluginManagement> 
+     
+   	 <plugins>
+				
+		   	     <plugin>
+			      <groupId>org.apache.maven.plugins</groupId>
+			      <artifactId>maven-deploy-plugin</artifactId>
+			      <configuration>
+			        <skip>true</skip>
+			      </configuration>
+			    </plugin>
+   	 
+   	 		    <plugin>
+			    	<groupId>org.sonatype.plugins</groupId>
+			    	<artifactId>nexus-staging-maven-plugin</artifactId>
+			    	<version>1.6.6</version>
+			    	<extensions>true</extensions>
+			    	<executions>
+				        <execution>
+				          <id>default-deploy</id>
+				          <phase>deploy</phase>
+				          <goals>
+				            <goal>deploy</goal>
+				          </goals>
+				        </execution>
+				    </executions>
+				  	<configuration>
+				     <serverId>ossrh</serverId>
+				     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+				     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+			 	 	 </configuration>
+		   		</plugin> 
+		   		
+		   		<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.2.1</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.2.0</version>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				
+				<plugin>
+				      <groupId>org.apache.maven.plugins</groupId>
+				      <artifactId>maven-gpg-plugin</artifactId>
+				      <version>1.5</version>
+				      <executions>
+				        <execution>
+				          <id>sign-artifacts</id>
+				          <phase>verify</phase>
+				          <goals>
+				            <goal>sign</goal>
+				          </goals>
+				        </execution>
+				      </executions>
+		   		 </plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.6.0</version>
+					<configuration>
+						<mainClass>ca.eunbeeK.App</mainClass>
+					</configuration>
+				</plugin>
+				
+			    <plugin>
+			      	<groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-surefire-plugin</artifactId>
+			         <version>2.22.0</version>
+			    </plugin>	  
+ 
     </plugins>
+    
   </build>
-  	<repositories>
-		<repository>
-			<id>apisimulator-github-repo</id>
-			<url>https://github.com/apimastery/APISimulator/raw/maven-repository</url>
-		</repository>
-	</repositories>
-  <dependencies>
-  	<dependency>
-  		<groupId>net.java.dev.jna</groupId>
-  		<artifactId>jna</artifactId>
-  		<version>5.6.0</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.junit.jupiter</groupId>
-  		<artifactId>junit-jupiter-api</artifactId>
-  		<version>5.4.2</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.junit.jupiter</groupId>
-  		<artifactId>junit-jupiter-engine</artifactId>
-  		<version>5.4.2</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.junit.platform</groupId>
-  		<artifactId>junit-platform-commons</artifactId>
-  		<version>1.4.2</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.junit.platform</groupId>
-  		<artifactId>junit-platform-engine</artifactId>
-  		<version>1.4.2</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.13</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.googlecode.json-simple</groupId>
-  		<artifactId>json-simple</artifactId>
-  		<version>1.1</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.jsoup</groupId>
-  		<artifactId>jsoup</artifactId>
-  		<version>1.13.1</version>
-  	</dependency>
-  	<dependency>
-		<groupId>com.apisimulator</groupId>
-		<artifactId>apisimulator-http-embedded</artifactId>
-		<version>1.7</version>
-	</dependency>
-  </dependencies>
+  
+	  	<repositories>
+			<repository>
+				<id>apisimulator-github-repo</id>
+				<url>https://github.com/apimastery/APISimulator/raw/maven-repository</url>
+			</repository>
+		</repositories>
+	
+	  <dependencies>
+	  
+	  	<dependency>
+	  		<groupId>net.java.dev.jna</groupId>
+	  		<artifactId>jna</artifactId>
+	  		<version>5.6.0</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>org.junit.jupiter</groupId>
+	  		<artifactId>junit-jupiter-api</artifactId>
+	  		<version>5.4.2</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>org.junit.jupiter</groupId>
+	  		<artifactId>junit-jupiter-engine</artifactId>
+	  		<version>5.4.2</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>org.junit.platform</groupId>
+	  		<artifactId>junit-platform-commons</artifactId>
+	  		<version>1.4.2</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>org.junit.platform</groupId>
+	  		<artifactId>junit-platform-engine</artifactId>
+	  		<version>1.4.2</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>junit</groupId>
+	  		<artifactId>junit</artifactId>
+	  		<version>4.13</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>com.googlecode.json-simple</groupId>
+	  		<artifactId>json-simple</artifactId>
+	  		<version>1.1</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>org.jsoup</groupId>
+	  		<artifactId>jsoup</artifactId>
+	  		<version>1.13.1</version>
+	  	</dependency>
+	  	
+	  	<dependency>
+			<groupId>com.apisimulator</groupId>
+			<artifactId>apisimulator-http-embedded</artifactId>
+			<version>1.7</version>
+		</dependency>
+		
+	  </dependencies>
 </project>
